@@ -1,71 +1,39 @@
-<html>
+<!DOCTYPE html>
+<html >
 <head>
-  <title>Login Page</title>
-  <style type="text/css">
-    div.container {
-      border: 3px solid #01f1f1;
-      padding: 6px;
-      width:300px;
-      margin:20px auto;
-      text-align:center;  
-    }
-    .login { 
-      background:#f9f9f9; 
-    }
-    .login div {
-      border:2px solid #fff;
-      padding:3px;
-    }
-    .register { 
-      background:#f9f9f9; 
-    }
-    .register div {
-      border:2px solid #fff;
-      padding:3px;
-    }
-    input[type=text], input[type=password] {
-      padding: 6px 15px;
-      margin: 8px 0;
-      border: 1px solid #ccc;
-    }
-    button {
-      background-color: #4CAF50;
-      color: white;
-      padding: 6px 15px;
-      margin: 8px 0;
-      width: 50%;
-    }
+  <meta charset="UTF-8">
+  <title>TodoList</title>
+  
 
-  </style>
+<link href="https://fonts.googleapis.com/css?family=Crimson+Text" rel="stylesheet">
+
+<link href="https://fonts.googleapis.com/css?family=Shadows+Into+Light+Two" rel="stylesheet">
+  
+<link rel="stylesheet" href="css/style.css">
+  
 </head>
 
 <body>
-<h1>Manage Your Tasks with Our TODO LIST APP</h1>
-
-  <div class='container' align="center">
-
-    <form method = "post" action="index.php" class="login">
-      <div>
-        <label><b>Username</b></label>
-        <input type="text" name="reg_uname" placeholder="Enter Username" required>
-      </div>
-      <div>
-        <label><b>Password</b></label>
-        <input type="password" name="reg_password" placeholder="Enter Password" required>
-        <input type ="hidden" name="action" value="test_user">
-      </div>
-      <div>
-        <button type="submit">Login</button>     
-      </div>
-    </form>
-
-    <form action="register.php" class="register">
-      <div>
-        <button type="submit">Sign up</button>
-      </div>
-    </form>
-
+<div class = "title"><h6>TodoList - Smart Task List Manager</h6></div>
+  
+<form method = "post" action="index.php" class="login">
+<div class="form">
+  <div class="fColor"></div>
+  <div class="tbar">
+    <div class="sColor"></div>
+    <input type="Username" class="input" name="reg_uname" placeholder="Username"/>
+    <input type="password" class="input" name="reg_password" placeholder="Password"/>
   </div>
-</body>
+  <button class="submit" name="submit" >Login</button>
+  <input type ="hidden" name="action" value="test_user">
+  <br>
+  
+</form>
 
+  <form action = "register.php" class= "register">
+  <button class="submit" name="submit" >SignUp</button>
+  </form>
+</div>
+  
+</body>
 </html>
