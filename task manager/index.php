@@ -66,6 +66,10 @@ else if ($action == 'delete_item'){
      include('todo_itemlist.php');
    
      }
-     }
+     }else if($action == 'edititem'){
+     $editid = filter_input(INPUT_POST, 'user_id');
+     $result3 = get_item($editid);
+     include('edititem.php');
+}
 
 ?>
