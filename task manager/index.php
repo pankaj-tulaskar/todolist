@@ -8,20 +8,21 @@ if($action == NULL)
 }
 if($action == "show_login_page")
 {
-  include('login.php');
+  include('index.php');
 }else if($action == 'test_user')
 {
-  $username = $_POST['reg_uname'];
-  $password = $_POST['reg_password'];
+  $username = $_POST['email'];
+  $password = $_POST['password'];
   $suc = isUserValid($username,$password);
   if($suc == true)
   {
-    $result = getTodoItems($_COOKIE['my_id']);
+    $result = get_items($_COOKIE['my_id']);
+    $result2= completed_items($_COOKIE['my_id']);
     include('list.php');
   }else{
-    header("Location: badInfo.php");
+    header("Location: ../error/badInfo.php");
   }
-}else if ($action == 'registrar')
+}else if ($action == 'register')
 {
  // echo " we want to create a new account";
   $name = filter_input(INPUT_POST, 'reg_uname');
