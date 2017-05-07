@@ -34,6 +34,18 @@
      $statement->closeCursor();
      return true;
    }
+   
+   function mark_done($status,$id){
+        global $db;
+	$query = 'UPDATE list_items SET status = :status WHERE id = :id';
+	$statement = $db->prepare($query);
+	$statement->bindValue(':status',$status);
+	$statement->bindValue(':id',$id);
+	$statement->execute();
+	$statement->closeCursor();
+	return true;
+
+   }
    function add_user($fname,$lname,$contact,$email,$username,$password,$birth,$gender){
      global $db;
      $query = 'SELECT * FROM users WHERE username = :uname';
