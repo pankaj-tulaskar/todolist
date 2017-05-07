@@ -1,14 +1,17 @@
 <?php
-   function addTodoItem($user_id,$todo_text){
-     global $db;
-     $query = 'insert into todos(user_id,todo_item) values (:userid,:todo_text)';
-     $statement = $db->prepare($query);
-     $statement->bindValue(':userid',$user_id);
-     $statement->bindValue(':todo_text',$todo_text);
-     $statement->execute();
-     $statement->closeCursor();
-     
-
+   function add_items($user_id,$description,$task,$date,$time,$status){
+        global $db;
+	$query = 'INSERT INTO list_items(todo, user_id, status, description, date, time) VALUES (:task, :userid, :status, :todo_text, :date, :time)';
+	$statement = $db->prepare($query);
+	$statement->bindValue(':userid',$user_id);
+	$statement->bindValue(':todo_text',$description);
+	$statement->bindValue(':task',$task);
+	$statement->bindValue(':date',$date);
+	$statement->bindValue(':time',$time);
+	$statement->bindValue(':status',$status);
+	$statement->execute();
+	$statement->closeCursor();
+	return true;
    }
    function getTodoItems($user_id){
      global $db;
