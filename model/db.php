@@ -54,10 +54,10 @@
    }
    function isUserValid($username,$password){
      global $db;
-     $query = 'select * from users where username = :name and 
-     passwordHash = :pass';
+     $query = 'SELECT * FROM users WHERE email = :name AND 
+     password = :pass';
      $statement = $db->prepare($query);
-     $statement->bindValue(':name',$username);
+     $statement->bindValue(':name',$email);
      $statement->bindValue(':pass',$password);
      $statement->execute();
      $result= $statement->fetchAll();
@@ -67,6 +67,7 @@
      if($count == 1){
        setcookie('login',$username);
        setcookie('my_id',$result[0]['id']);
+       setcookie('my_name',$result[1]['first_name']);
        setcookie('islogged',true);
        return true;
      }else{
