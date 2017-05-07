@@ -24,11 +24,11 @@
      $statement->closeCursor();
      return $result;
    }
-   function createUser($username, $password){
+   function add_user($fname,$lname,$contact,$email,$username,$password,$birth,$gender){
      global $db;
-     $query = 'select * from users where username = :name ';
+     $query = 'SELECT * FROM users WHERE username = :uname';
      $statement = $db->prepare($query);
-     $statement->bindValue(':name',$username);
+     $statement->bindValue(':uname',$username);
      $statement->execute();
      $result= $statement->fetchAll();
      $statement->closeCursor();
@@ -37,11 +37,16 @@
      {
        return true;
      }else{
-     $query = 'insert into users (username,passwordHash) values
-        (:name, :pass)';
+     $query = 'INSERT INTO users(first_name,last_name,contact_no,email,username,password,birth,gender) VALUES (:fname,:lname,:cont,:emailid,:uname,:pass,:birth,:gender)';
      $statement = $db->prepare($query);
-     $statement->bindValue(':name',$username);
+     $statement->bindValue(':fname',$fname);
+     $statement->bindValue(':lname',$lname);
+     $statement->bindValue(':cont',$contact);
+     $statement->bindValue(':emailid',$email);
+     $statement->bindValue(':uname',$username);
      $statement->bindValue(':pass',$password);
+     $statement->bindValue(':birth',$birth);
+     $statement->bindValue(':gender',$gender);
      $statement->execute();
      $statement->closeCursor();
      return false;
