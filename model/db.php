@@ -46,6 +46,22 @@
 	return true;
 
    }
+   
+   function edit_item($etask,$edescription,$edate,$etime,$eid){
+        global $db;
+	$query = 'UPDATE list_items SET todo = :etask, description = :edescription, date = :etime, time = :edate WHERE id = :eid';
+        $statement = $db->prepare($query);
+        $statement->bindValue(':etask',$etask);
+        $statement->bindValue(':eid',$eid);
+	$statement->bindValue(':edescription',$edescription);
+	$statement->bindValue(':edate',$edate);
+	$statement->bindValue(':etime',$etime);
+        $statement->execute();
+        $statement->closeCursor();
+        return true;
+
+  }
+  
    function add_user($fname,$lname,$contact,$email,$username,$password,$birth,$gender){
      global $db;
      $query = 'SELECT * FROM users WHERE username = :uname';
