@@ -13,11 +13,12 @@
 	$statement->closeCursor();
 	return true;
    }
-   function getTodoItems($user_id){
+   function get_items($user_id){
      global $db;
-     $query = 'select * from todos where user_id= :userid';
+     $query = 'SELECT * FROM list_items WHERE user_id= :userid AND status = :status';
      $statement = $db->prepare($query);
      $statement->bindValue(':userid',$user_id);
+     $statement->bindValue(':status','incomplete');
      $statement->execute();
      $result= $statement->fetchAll();
      $statement->closeCursor();
