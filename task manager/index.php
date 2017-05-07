@@ -22,22 +22,24 @@ if($action == "show_login_page")
   }else{
     header("Location: ../error/badInfo.php");
   }
-}else if ($action == 'register')
-{
- // echo " we want to create a new account";
-  $name = filter_input(INPUT_POST, 'reg_uname');
-  if(isset($name))
-  {
-     $pass = filter_input(INPUT_POST, 'reg_password');
-     $exit = createUser($name,$pass);
-     if($exit == true)
-     {
-       include('user_exit.php');
-     }else {
-       header("Location: login.php");
-     }
-  }
-}else if ($action == 'add')
+}$fname = filter_input(INPUT_POST, 'firstname');
+       $lname = filter_input(INPUT_POST, 'lastname');
+       $contact = filter_input(INPUT_POST, 'contact');
+       $email = filter_input(INPUT_POST, 'mailid');
+       $username = filter_input(INPUT_POST, 'user');
+       $password = filter_input(INPUT_POST, 'password');
+       $birth = filter_input(INPUT_POST, 'dob');
+       $gender = filter_input(INPUT_POST, 'gender');
+       $exit = add_user($fname,$lname,$contact,$email,$username,$password,$birth,$gender);
+       if($exit == true)
+       {
+      // echo "already exist";
+        header("Location: ../error/userexist.php");
+   }else{
+       header("Location: ../index.php");
+
+   }
+  }else if ($action == 'add')
 {
 
 
