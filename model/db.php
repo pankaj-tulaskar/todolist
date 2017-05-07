@@ -24,6 +24,16 @@
      $statement->closeCursor();
      return $result;
    }
+   
+   function delete_items($taskid){
+     global $db;
+     $query = 'DELETE FROM list_items WHERE id = :task';
+     $statement = $db->prepare($query);
+     $statement->bindValue(':task',$taskid);
+     $statement->execute();
+     $statement->closeCursor();
+     return true;
+   }
    function add_user($fname,$lname,$contact,$email,$username,$password,$birth,$gender){
      global $db;
      $query = 'SELECT * FROM users WHERE username = :uname';
