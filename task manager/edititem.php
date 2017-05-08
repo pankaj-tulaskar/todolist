@@ -13,21 +13,28 @@ endforeach;
 	<link rel="stylesheet" href="../css/style_add_edit.css" type="text/css">	  
 </head>
 <body>
+<div class ="header">
 <div class = "title"><h1>TodoList - Smart Task List Manager</h1></div>
+</div>
 <div class="form-style-2">
 <div class="form-style-2-heading">Old Values</div>
 <div class="add_task_box">
 <label for="field1"><span>Task</span>
 <input type="text" name="" class="input-field" value=" <?php echo $res3['todo']; ?>">
 </label>
-<label for="field4"><span>Description</span><input type="text" class="input-field" name="" value=" <?php echo $res3['description']; ?>"></label>
-<label for="field1"><span>Date</span><input type="text" class="input-field" name="" value=" <?php echo $res3['date']; ?>"></label>
-<label for="field1"><span>Time</span><input type="text" class="input-field" name="" value=" <?php echo $res3['time']; ?>"></label>
+<label for="field4"><span>Description</span>
+<textarea class="field-long field-textarea" name="" value=" <?php echo $res3['description']; ?>"></textarea></label>
+
+<label for="field1"><span>Date</span>
+<input type="text" class="input-field" name="" value=" <?php echo $res3['date']; ?>"></label>
+
+<label for="field1"><span>Time</span>
+<input type="text" class="input-field" name="" value=" <?php echo $res3['time']; ?>"></label>
 </div><br>
  <div class="form-style-2-heading">Enter New Values</div>
  <form style="margin-top: 15px;" class="add_task_box" action="index.php" method="post">
  <label for="field1"><span>Task</span><input type="text" class="input-field" name="edtask"></label>
- <label for="field1"><span>Description</span><input type="text" class="input-field" name="edescription"></label>
+ <label for="field1"><span>Description</span><textarea class="field-long field-textarea" name="edescription"></textarea></label>
  <label for="field1"><span>Date</span><input type="date" class="input-field" name="date" ></label>
  <label for="field1"><span>Time</span><input type="time" class="input-field" name="time" ></label>
  <input type="hidden" name="user_id" value="<?php echo $res3['id']; ?>">
