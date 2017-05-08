@@ -1,0 +1,59 @@
+body{
+	font-size: 14px;
+	background: #ecebeb;
+	line-height: 1.428571429;
+
+}
+.header{
+padding: 10px 0 60px 0;	
+background-color: #403e42;
+border-bottom: 2px solid #ddd;
+}
+.title{
+  width: 100%;
+}
+table {
+    border-collapse: collapse;
+    width: 100%;
+}
+th, td {
+    font-family: Muli;
+    text-align: left;
+    padding: 8px;
+}
+tr:nth-child(even){background-color: #}
+th {
+    background-color: #669999;
+    color: white;
+}
+input[type=submit] {
+    width: 120px;
+    height: 30px;
+    background-color: #669999;
+    color: white;
+    padding: 8px 20px;
+    margin: -15px 0;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+}
+input[type=submit]:hover {
+    background-color: #669999;
+    }
+.welcome{
+background:#ecebeb;
+}
+h1 {
+font-family: Muli;
+color: white;
+text-align: center;
+}
+h3 {
+font-family: Muli;
+text-align: center;
+}
+p {
+font-family: Muli;
+color: black;
+font-size: 30px;
+}
