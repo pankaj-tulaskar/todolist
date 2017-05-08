@@ -61,6 +61,28 @@
         return true;
 
   }
+  function get_item($editid){
+        global $db;
+	$query = 'SELECT * FROM list_items WHERE id = :eid';
+	$statement = $db->prepare($query);
+	$statement->bindValue(':eid',$editid);
+	$statement->execute();
+	$result= $statement->fetchAll();
+	$statement->closeCursor();
+	return $result;
+  }
+  
+  function completed_items($user_id){
+        global $db;
+	$query = 'SELECT * FROM list_items WHERE user_id= :userid AND status = :status';
+	$statement = $db->prepare($query);
+	$statement->bindValue(':userid',$user_id);
+	$statement->bindValue(':status','complete');
+	$statement->execute();
+	$result= $statement->fetchAll();
+	$statement->closeCursor();
+	return $result;
+  }
   
    function add_user($fname,$lname,$contact,$email,$username,$password,$birth,$gender){
      global $db;
@@ -90,7 +112,7 @@
      return false;
      }
    }
-   function isUserValid($username,$password){
+   function isUserValid($email,$password){
      global $db;
      $query = 'SELECT * FROM users WHERE email = :name AND 
      password = :pass';
@@ -103,9 +125,8 @@
 
      $count = $statement->rowCount();
      if($count == 1){
-       setcookie('login',$username);
+       setcookie('login',$email);
        setcookie('my_id',$result[0]['id']);
-       setcookie('my_name',$result[1]['first_name']);
        setcookie('islogged',true);
        return true;
      }else{
