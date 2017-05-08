@@ -1,17 +1,22 @@
 body {
-  background: url(https://wallpaperscraft.com/image/cube_3d_graphics_black_gray_background_3d_graphics_74555_1920x1080.jpg);
+  font-size: 14px;
+  background: #ecebeb;
+  line-height: 1.428571429;
 }
-
+.header{
+padding: 10px 0 60px 0; 
+background-color: #403e42;
+border-bottom: 2px solid #ddd;
+}
 .title {
 
-  text-align: center;
-  font-size: 90px;
-  padding-top: 50px;
-  font-style: italic;
-  font-weight: bold;
-  color: white;
-  font-family: Shadow Into Light Two;
+  width: 100%;
 
+}
+h1 {
+font-family: Muli;
+color: white;
+text-align: center;
 }
 .wrapper {
   margin-top: 80px;
