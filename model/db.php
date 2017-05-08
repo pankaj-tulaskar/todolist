@@ -127,6 +127,8 @@
      if($count == 1){
        setcookie('login',$email);
        setcookie('my_id',$result[0]['id']);
+       setcookie('fname',$result[0]['first_name']);
+      setcookie('lname',$result[0]['last_name']);
        setcookie('islogged',true);
        return true;
      }else{
