@@ -9,12 +9,14 @@
 </head>
 
 <body>
+  <div class ="header">
 	<div class = "title"><h1>TodoList - Smart Task List Manager</h1></div>
+  </div>
   <div class="wrapper">
   <br>
   <div class="form-signin">
   	<h2 class="form-signin-heading">Login</h2>
-	<form method="post" action="./Todo-items-manager/index.php">
+	<form method="post" action="./task manager/index.php">
         <input type="text" class="form-control" placeholder="E-mail" name="email"><br>
 	<input type="password" class="form-control" placeholder="password" name="password"><br>
 	<input type ="hidden" name="action" value="test_user">
