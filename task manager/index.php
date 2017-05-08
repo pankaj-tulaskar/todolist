@@ -8,7 +8,7 @@ if($action == NULL)
 }
 if($action == "show_login_page")
 {
-  include('index.php');
+  include('./index.php');
 }else if($action == 'test_user')
 {
   $username = $_POST['email'];
@@ -70,6 +70,29 @@ else if ($action == 'delete_item'){
      $editid = filter_input(INPUT_POST, 'user_id');
      $result3 = get_item($editid);
      include('edititem.php');
+}else if ($action == 'edit_new_item'){
+     $etask = filter_input(INPUT_POST, 'edtask');
+     $edescription = filter_input(INPUT_POST, 'edescription');
+     $edate = filter_input(INPUT_POST, 'date');
+     $etime = filter_input(INPUT_POST, 'time');
+     $eid = filter_input(INPUT_POST, 'user_id');
+     $edit_i = edit_item($etask,$edescription,$etime,$edate,$eid);
+     if($edit_i == true){
+     $result = get_items($_COOKIE['my_id']);
+     $result2 = completed_items($_COOKIE['my_id']);
+     include('todo_itemlist.php');
+     }
+
 }
+else if ($action == 'markdone'){
+      $id = filter_input(INPUT_POST, 'user_id');
+      $status = "complete";
+      $markdone = mark_done($status,$id);
+      if($markdone == true){
+         $result = get_items($_COOKIE['my_id']);
+         $result2 = completed_items($_COOKIE['my_id']);
+	 include('todo_itemlist.php');
+     }
+     }
 
 ?>
