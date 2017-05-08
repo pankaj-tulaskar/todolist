@@ -1,4 +1,5 @@
 <?php
+   session_start();
    function add_items($user_id,$description,$task,$date,$time,$status){
         global $db;
 	$query = 'INSERT INTO list_items(todo, user_id, status, description, date, time) VALUES (:task, :userid, :status, :todo_text, :date, :time)';
@@ -125,10 +126,14 @@
 
      $count = $statement->rowCount();
      if($count == 1){
+       $id = $result[0]['id'];
+       $_SESSION['id'] = $id;
+       $fname = $result[0]['first_name'];
+       $_SESSION['first_name'] = $fname;
+       $lname = $result[0]['last_name'];
+       $_SESSION['last_name'] = $lname;
        setcookie('login',$email);
        setcookie('my_id',$result[0]['id']);
-       setcookie('fname',$result[0]['first_name']);
-      setcookie('lname',$result[0]['last_name']);
        setcookie('islogged',true);
        return true;
      }else{
