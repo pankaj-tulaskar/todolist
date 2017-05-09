@@ -8,7 +8,7 @@ if($action == NULL)
 }
 if($action == "show_login_page")
 {
-  include('./index.php');
+  include('./login.php');
 }else if($action == 'test_user')
 {
   $username = $_POST['email'];
@@ -16,8 +16,9 @@ if($action == "show_login_page")
   $suc = isUserValid($username,$password);
   if($suc == true)
   {
-    $result = get_items($_COOKIE['my_id']);
-    $result2= completed_items($_COOKIE['my_id']);
+      $id = $_SESSION['id'];
+    $result = get_items($id);
+   $result2 = completed_items($id);
     include('todo_itemlist.php');
   }else{
     header("Location: ../error/badInfo.php");
@@ -35,10 +36,9 @@ if($action == "show_login_page")
        $exit = add_user($fname,$lname,$contact,$email,$username,$password,$birth,$gender);
        if($exit == true)
        {
-      // echo "already exist";
-        header("Location: ../error/userexist.php");
+        header("Location: ../error/user_exists.php");
    }else{
-       header("Location: ../index.php");
+       header("Location: ../login.php");
    }
   
   }else if ($action == 'additem')
@@ -51,8 +51,9 @@ if($action == "show_login_page")
  $status = "incomplete";
  $additem = add_items($user_id,$description,$task,$date,$time,$status);
       if($additem == true){
-      $result = get_items($_COOKIE['my_id']);
-      $result2 = completed_items($_COOKIE['my_id']);
+      $id = $_SESSION['id'];
+      $result = get_items($id);
+      $result2 = completed_items($id);
       include('todo_itemlist.php');
       }
 }
@@ -61,8 +62,9 @@ else if ($action == 'delete_item'){
      $taskid = filter_input(INPUT_POST, 'user_id');
      $task = delete_items($taskid);
      if($task == true){
-     $result = get_items($_COOKIE['my_id']);
-     $result2 = completed_items($_COOKIE['my_id']);
+     $id = $_SESSION['id'];
+      $result = get_items($id);
+      $result2 = completed_items($id);
      include('todo_itemlist.php');
    
      }
@@ -76,10 +78,11 @@ else if ($action == 'delete_item'){
      $edate = filter_input(INPUT_POST, 'date');
      $etime = filter_input(INPUT_POST, 'time');
      $eid = filter_input(INPUT_POST, 'user_id');
-     $edit_i = edit_item($etask,$edescription,$etime,$edate,$eid);
-     if($edit_i == true){
-     $result = get_items($_COOKIE['my_id']);
-     $result2 = completed_items($_COOKIE['my_id']);
+     $editvalue = edit_item($etask,$edescription,$etime,$edate,$eid);
+     if($editvalue == true){
+     $id = $_SESSION['id'];
+     $result = get_items($id);
+     $result2 = completed_items($id);
      include('todo_itemlist.php');
      }
 
@@ -89,8 +92,9 @@ else if ($action == 'markdone'){
       $status = "complete";
       $markdone = mark_done($status,$id);
       if($markdone == true){
-         $result = get_items($_COOKIE['my_id']);
-         $result2 = completed_items($_COOKIE['my_id']);
+         $id = $_SESSION['id'];
+         $result = get_items($id);
+         $result2 = completed_items($id);
 	 include('todo_itemlist.php');
      }
      }
