@@ -12,25 +12,47 @@
   <div class ="header">
   <div class = "title"><h1>TodoList - Smart Task List Manager</h1></div>
   </div>
-  <div class="wrapper">
-  <br>
-  <div class="form-signin">
-  	<h2 class="form-signin-heading">SIGN UP</h2>
+  <div class="login">
+  <div class="heading">
+    <h2>Sign Up</h2>
 		<form method="post" action="./task manager/index.php">
-		        <input type="text" class="form-control" placeholder="First Name" name="firstname"><br>
-				<input type="text" class="form-control" placeholder="Last Name" name="lastname"><br>
-				<input type="text" class="form-control" placeholder="Contact No" name="contact"><br>
-				<input type="text" class="form-control" placeholder="E-mail" name="mailid"><br>
-				<input type="text" class="form-control" placeholder="username" name="user"><br>
-				<input type="password" class="form-control" placeholder="password" name="password"><br>
-        <input type="date" class="form-control" placeholder="Birth Date" name="dob"><br>
-				<select class="form-control" placeholder="Gender" name="gender">
+		        
+            <div class="input-group input-group-lg">
+        <span class="input-group-addon"><i class="fa fa-user"></i></span>
+            <input type="text" class="form-control" placeholder="First Name" name="firstname"></div><br>
+				
+        <div class="input-group input-group-lg">
+        <span class="input-group-addon"><i class="fa fa-user"></i></span>
+        <input type="text" class="form-control" placeholder="Last Name" name="lastname"></div><br>
+				
+        <div class="input-group input-group-lg">
+        <span class="input-group-addon"><i class="fa fa-user"></i></span>
+        <input type="text" class="form-control" placeholder="Contact No" name="contact"></div><br>
+				
+        <div class="input-group input-group-lg">
+        <span class="input-group-addon"><i class="fa fa-user"></i></span>
+        <input type="text" class="form-control" placeholder="E-mail" name="mailid"></div><br>
+				
+        <div class="input-group input-group-lg">
+        <span class="input-group-addon"><i class="fa fa-user"></i></span>
+        <input type="text" class="form-control" placeholder="username" name="user"></div><br>
+				
+        <div class="input-group input-group-lg">
+     <span class="input-group-addon"><i class="fa fa-lock"></i></span>
+        <input type="password" class="form-control" placeholder="password" name="password"></div><br>
+        
+        <div class="input-group input-group-lg">
+        <span class="input-group-addon"><i class="fa fa-user"></i></span>
+        <input type="date" class="form-control" placeholder="Birth Date" name="dob"></div><br>
+				<div class="input-group input-group-lg">
+        <span class="input-group-addon"><i class="fa fa-user"></i></span>
+        <select class="form-control" placeholder="Gender" name="gender">
 					<option>Select</option>
 					<option>Male</option>
 					<option>Female</option>
-				</select><br>
+				</select></div><br>
 				<input type ="hidden" name="action" value="register">
-				<input type="submit" class="btn btn-lg btn-primary btn-block" value="Sign-Up">
+				<button type="submit" class="float">Sign Up</button>
 		</form>
 		</div>
 
