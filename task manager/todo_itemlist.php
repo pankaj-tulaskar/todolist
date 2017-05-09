@@ -15,7 +15,7 @@
   <form method = 'post' class ='button' action='../logout.php'><input type="submit" value="LOGOUT"/>
     </form>
   <div class="welcome">
- <p>Welcome, <?php echo $_COOKIE['fname']?><span>&nbsp;</span><?php echo $_COOKIE['lname']?></p>
+ <p> Welcome, <?php $fname = $_SESSION['first_name']; echo $fname;?> <?php $lname = $_SESSION['last_name']; echo $lname;?></p>
   </div>
    <h3><strong style="align:center">To-do Tasks</strong></h3>
 
@@ -26,7 +26,7 @@
        <tr>
       <th style="text-align: center;">Task</th>
       <th style="text-align: center;">Description</th>
-      th>&nbsp;</th>
+      <th>&nbsp;</th>
       <th>&nbsp;</th>
       <th>&nbsp;</th>
       </tr>
